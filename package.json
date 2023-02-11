@@ -1,0 +1,9 @@
+{
+  "name": "qifi",
+  "version": "1.0.0",
+  "description": "Wifi QR Code Generator",
+  "main": "index.js",
+  "repository": "https://github.com/brightseon/qifi.git",
+  "author": "brightseon <public.seon@gmail.com>",
+  "license": "MIT"
+}
