@@ -28,7 +28,7 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.css$/,
+                test: /\.s[ac]ss$/,
                 use: [
                     { loader: IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader },
                     {
@@ -38,7 +38,8 @@ module.exports = {
                                 localIdentName: IS_DEV ? '[local]-[hash:base64:5]' : '[hash:base64]'
                             }
                         }
-                    }
+                    },
+                    { loader: 'sass-loader' }
                 ],
                 exclude: /node_modules/
             }
