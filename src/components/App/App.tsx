@@ -1,14 +1,13 @@
-import styles from './styles.scss';
-import test from '../../../images/test.svg';
-
-console.log(styles);
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { PATH } from '../../constants/path';
+import Home from '../../pages/Home';
 
 const App = () => (
-    <div className={styles.app}>
-        <h1 className={styles.heading}>App</h1>
-        <span className={styles.hello}>Hello!</span>
-        <img src={test} />
-    </div>
+    <BrowserRouter>
+        <Routes>
+            <Route path={PATH.home} element={<Home />} />
+        </Routes>
+    </BrowserRouter>
 );
 
 export default App;
