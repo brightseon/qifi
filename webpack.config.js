@@ -9,22 +9,20 @@ module.exports = {
     mode: MODE,
     devtool: 'eval',
     // devtool: 'hidden-source-map',
-    entry: path.join(__dirname, 'src', 'index.js'),
+    entry: path.join(__dirname, 'src', 'index.tsx'),
     output: {
         filename: 'bundle.js',
         path: path.join(__dirname, 'dist'),
         clean: true
     },
     resolve: {
-        extensions: ['.js']
+        extensions: ['.tsx', '.ts', '.js']
     },
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
-                use: {
-                    loader: 'babel-loader'
-                },
+                test: /\.tsx?$/,
+                use: [{ loader: 'babel-loader' }, { loader: 'ts-loader' }],
                 exclude: /node_modules/
             }
         ]
