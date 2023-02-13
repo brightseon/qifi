@@ -40,7 +40,10 @@ module.exports = {
                             }
                         }
                     },
-                    { loader: 'sass-loader' }
+                    {
+                        loader: 'sass-loader',
+                        options: { additionalData: `@import "./src/global";` }
+                    }
                 ],
                 exclude: /node_modules/
             },
