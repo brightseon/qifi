@@ -1,0 +1,12 @@
+@import './base/colors';
+@import './base/mixins';
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+}
