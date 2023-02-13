@@ -1,0 +1,28 @@
+@mixin rectangle($width: null, $height: null, $radius: null) {
+    width: $width;
+    height: $height;
+    border-radius: $radius;
+}
+
+@mixin square($size: null, $radius: null) {
+    @include rectangle($size, $size, $radius);
+}
+
+@mixin circle($size: null) {
+    @include square($size, 50%);
+}
+
+@mixin flex($align: null, $justify: null) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin center() {
+    @include flex(center, center);
+}
+
+@mixin column($align: null, $justify: null) {
+    @include flex($align, $justify);
+    flex-direction: column;
+}
