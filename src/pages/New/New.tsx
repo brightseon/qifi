@@ -4,12 +4,15 @@ const New = () => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [protocol, setProtocol] = useState('none');
+    const [description, setDescription] = useState('');
 
     const changeName = (e: ChangeEvent<HTMLInputElement>) => setName(e.target.value);
 
     const changePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
 
     const changeProtocol = (e: ChangeEvent<HTMLInputElement>) => setProtocol(e.target.value);
+
+    const changeDescription = (e: ChangeEvent<HTMLInputElement>) => setDescription(e.target.value);
 
     return (
         <div>
@@ -55,7 +58,12 @@ const New = () => {
             </div>
             <div>
                 <label>설명</label>
-                <input type={'text'} name="description" />
+                <input
+                    type={'text'}
+                    name="description"
+                    value={description}
+                    onChange={changeDescription}
+                />
             </div>
             <button type="button">생성하기</button>
         </div>
