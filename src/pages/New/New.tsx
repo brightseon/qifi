@@ -14,6 +14,8 @@ const New = () => {
 
     const changeDescription = (e: ChangeEvent<HTMLInputElement>) => setDescription(e.target.value);
 
+    const create = () => {};
+
     return (
         <div>
             <div>
@@ -65,7 +67,9 @@ const New = () => {
                     onChange={changeDescription}
                 />
             </div>
-            <button type="button">생성하기</button>
+            <button type="button" onClick={create}>
+                생성하기
+            </button>
         </div>
     );
 };
