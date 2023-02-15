@@ -3,10 +3,13 @@ import { ChangeEvent, useState } from 'react';
 const New = () => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
+    const [protocol, setProtocol] = useState('none');
 
     const changeName = (e: ChangeEvent<HTMLInputElement>) => setName(e.target.value);
 
     const changePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
+
+    const changeProtocol = (e: ChangeEvent<HTMLInputElement>) => setProtocol(e.target.value);
 
     return (
         <div>
@@ -21,11 +24,32 @@ const New = () => {
             <div>
                 <label>보안 프로토콜</label>
                 <div>
-                    <input id="none" type={'radio'} name="None" />
+                    <input
+                        id="none"
+                        type={'radio'}
+                        name="None"
+                        value={'none'}
+                        checked={protocol === 'none'}
+                        onChange={changeProtocol}
+                    />
                     <label htmlFor="none">None</label>
-                    <input id="wpa" type={'radio'} name="WPA/WPA2" />
+                    <input
+                        id="wpa"
+                        type={'radio'}
+                        name="WPA/WPA2"
+                        value={'wpa'}
+                        checked={protocol === 'wpa'}
+                        onChange={changeProtocol}
+                    />
                     <label htmlFor="wpa">WPA/WAP2</label>
-                    <input id="wep" type={'radio'} name="WEP" />
+                    <input
+                        id="wep"
+                        type={'radio'}
+                        name="WEP"
+                        value={'wep'}
+                        checked={protocol === 'wep'}
+                        onChange={changeProtocol}
+                    />
                     <label htmlFor="wep">WEP</label>
                 </div>
             </div>
