@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const MODE = process.env.MODE;
 const IS_DEV = MODE === 'development';
@@ -19,7 +20,8 @@ module.exports = {
         clean: true
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js']
+        extensions: ['.tsx', '.ts', '.js'],
+        plugins: [new TsconfigPathsPlugin()]
     },
     module: {
         rules: [
