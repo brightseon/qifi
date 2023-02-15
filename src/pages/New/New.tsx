@@ -2,8 +2,11 @@ import { ChangeEvent, useState } from 'react';
 
 const New = () => {
     const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
 
     const changeName = (e: ChangeEvent<HTMLInputElement>) => setName(e.target.value);
+
+    const changePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
 
     return (
         <div>
@@ -13,7 +16,7 @@ const New = () => {
             </div>
             <div>
                 <label>비밀번호</label>
-                <input type={'password'} />
+                <input type={'password'} value={password} onChange={changePassword} />
             </div>
             <div>
                 <label>보안 프로토콜</label>
