@@ -5,6 +5,7 @@ const New = () => {
     const [password, setPassword] = useState('');
     const [protocol, setProtocol] = useState('none');
     const [description, setDescription] = useState('');
+    const [displayPassword, setDisplayPassword] = useState(false);
 
     const changeName = (e: ChangeEvent<HTMLInputElement>) => setName(e.target.value);
 
@@ -16,6 +17,8 @@ const New = () => {
 
     const create = () => {};
 
+    const toggleDisplayPassword = () => setDisplayPassword((displayPassword) => !displayPassword);
+
     return (
         <div>
             <div>
@@ -24,7 +27,14 @@ const New = () => {
             </div>
             <div>
                 <label>비밀번호</label>
-                <input type={'password'} value={password} onChange={changePassword} />
+                <input
+                    type={displayPassword ? 'text' : 'password'}
+                    value={password}
+                    onChange={changePassword}
+                />
+                <button type="button" onClick={toggleDisplayPassword}>
+                    Display
+                </button>
             </div>
             <div>
                 <label>보안 프로토콜</label>
