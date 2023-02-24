@@ -9,6 +9,7 @@ const New = () => {
     const [protocol, setProtocol] = useState<Encryption>('NONE');
     const [description, setDescription] = useState('');
     const [displayPassword, setDisplayPassword] = useState(false);
+    const [qr, setQR] = useState(null);
 
     const changeName = (e: ChangeEvent<HTMLInputElement>) => setName(e.target.value);
 
@@ -26,7 +27,7 @@ const New = () => {
                 password,
                 encryptionType: protocol
             });
-            console.log(url);
+            setQR(url);
         } catch (err) {
             console.error('create qr code error: ', err);
             alert('QR Code를 생성하는 과정에서 에러가 발생했습니다.');
@@ -96,6 +97,12 @@ const New = () => {
             <button type="button" onClick={create}>
                 생성하기
             </button>
+            {qr && (
+                <>
+                    <br />
+                    <img src={qr} />
+                </>
+            )}
         </div>
     );
 };
