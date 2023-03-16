@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import useInput from '../useInput/useInput';
+import useInput from '../useInput';
 import { getQRCodeURL } from '@lib/qr';
 
 type Encryption = Parameters<typeof getQRCodeURL>[0]['encryptionType'];
