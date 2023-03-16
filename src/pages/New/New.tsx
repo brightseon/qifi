@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import useQRForm from '@hooks/useQRForm';
+import useToggle from '@hooks/useToggle';
 
 const New = () => {
     const {
@@ -14,9 +14,7 @@ const New = () => {
         qr,
         createQR
     } = useQRForm();
-    const [displayPassword, setDisplayPassword] = useState(false);
-
-    const toggleDisplayPassword = () => setDisplayPassword((displayPassword) => !displayPassword);
+    const [displayPassword, { toggle: toggleDisplayPassword }] = useToggle();
 
     return (
         <div>
