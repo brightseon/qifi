@@ -1,38 +1,20 @@
-import { ChangeEvent, useState } from 'react';
-import { getQRCodeURL } from 'src/lib/qr';
-
-type Encryption = Parameters<typeof getQRCodeURL>[0]['encryptionType'];
+import { useState } from 'react';
+import useQRForm from '@hooks/useQRForm';
 
 const New = () => {
-    const [name, setName] = useState('');
-    const [password, setPassword] = useState('');
-    const [protocol, setProtocol] = useState<Encryption>('NONE');
-    const [description, setDescription] = useState('');
+    const {
+        ssid,
+        changeSSID,
+        protocol,
+        changeProtocol,
+        password,
+        changePassword,
+        description,
+        changeDescription,
+        qr,
+        createQR
+    } = useQRForm();
     const [displayPassword, setDisplayPassword] = useState(false);
-    const [qr, setQR] = useState(null);
-
-    const changeName = (e: ChangeEvent<HTMLInputElement>) => setName(e.target.value);
-
-    const changePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
-
-    const changeProtocol = (e: ChangeEvent<HTMLInputElement>) =>
-        setProtocol(e.target.value.toUpperCase() as Encryption);
-
-    const changeDescription = (e: ChangeEvent<HTMLInputElement>) => setDescription(e.target.value);
-
-    const create = async () => {
-        try {
-            const url = await getQRCodeURL({
-                ssid: name,
-                password,
-                encryptionType: protocol
-            });
-            setQR(url);
-        } catch (err) {
-            console.error('create qr code error: ', err);
-            alert('QR Code를 생성하는 과정에서 에러가 발생했습니다.');
-        }
-    };
 
     const toggleDisplayPassword = () => setDisplayPassword((displayPassword) => !displayPassword);
 
@@ -40,7 +22,7 @@ const New = () => {
         <div>
             <div>
                 <label>이름</label>
-                <input name="name" value={name} onChange={changeName} />
+                <input name="ssid" value={ssid} onChange={changeSSID} />
             </div>
             <div>
                 <label>비밀번호</label>
@@ -94,7 +76,7 @@ const New = () => {
                     onChange={changeDescription}
                 />
             </div>
-            <button type="button" onClick={create}>
+            <button type="button" onClick={createQR}>
                 생성하기
             </button>
             {qr && (
