@@ -1,5 +1,6 @@
 import useQRForm from '@hooks/useQRForm';
 import useToggle from '@hooks/useToggle';
+import Input from '@components/Input';
 
 const New = () => {
     const {
@@ -20,11 +21,11 @@ const New = () => {
         <div>
             <div>
                 <label>이름</label>
-                <input name="ssid" value={ssid} onChange={changeSSID} />
+                <Input value={ssid} onChange={changeSSID} />
             </div>
             <div>
                 <label>비밀번호</label>
-                <input
+                <Input
                     type={displayPassword ? 'text' : 'password'}
                     value={password}
                     onChange={changePassword}
@@ -67,12 +68,7 @@ const New = () => {
             </div>
             <div>
                 <label>설명</label>
-                <input
-                    type={'text'}
-                    name="description"
-                    value={description}
-                    onChange={changeDescription}
-                />
+                <Input value={description} onChange={changeDescription} />
             </div>
             <button type="button" onClick={createQR}>
                 생성하기
