@@ -1,9 +1,9 @@
 import useQRForm from '@hooks/useQRForm';
 import Input from '@components/Input';
-import Radio from '@components/Radio';
 import Button from '@components/Button';
 import Ssid from '@components/Ssid';
 import Password from '@components/Password';
+import Protocol from '@components/Protocol';
 
 const New = () => {
     const {
@@ -23,35 +23,7 @@ const New = () => {
         <div>
             <Ssid ssid={ssid} changeSSID={changeSSID} />
             <Password password={password} changePassword={changePassword} />
-            <div>
-                <label>보안 프로토콜</label>
-                <div>
-                    <Radio
-                        id="none"
-                        value={'none'}
-                        checked={protocol === 'NONE'}
-                        onChange={changeProtocol}
-                    >
-                        None
-                    </Radio>
-                    <Radio
-                        id="wpa"
-                        value={'wpa'}
-                        checked={protocol === 'WPA'}
-                        onChange={changeProtocol}
-                    >
-                        WPA/WAP2
-                    </Radio>
-                    <Radio
-                        id="wep"
-                        value={'wep'}
-                        checked={protocol === 'WEP'}
-                        onChange={changeProtocol}
-                    >
-                        WEP
-                    </Radio>
-                </div>
-            </div>
+            <Protocol protocol={protocol} changeProtocol={changeProtocol} />
             <div>
                 <label>설명</label>
                 <Input value={description} onChange={changeDescription} />
