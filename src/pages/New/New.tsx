@@ -1,6 +1,7 @@
 import useQRForm from '@hooks/useQRForm';
 import useToggle from '@hooks/useToggle';
 import Input from '@components/Input';
+import Radio from '@components/Radio';
 
 const New = () => {
     const {
@@ -37,33 +38,30 @@ const New = () => {
             <div>
                 <label>보안 프로토콜</label>
                 <div>
-                    <input
+                    <Radio
                         id="none"
-                        type={'radio'}
-                        name="None"
                         value={'none'}
                         checked={protocol === 'NONE'}
                         onChange={changeProtocol}
-                    />
-                    <label htmlFor="none">None</label>
-                    <input
+                    >
+                        None
+                    </Radio>
+                    <Radio
                         id="wpa"
-                        type={'radio'}
-                        name="WPA/WPA2"
                         value={'wpa'}
                         checked={protocol === 'WPA'}
                         onChange={changeProtocol}
-                    />
-                    <label htmlFor="wpa">WPA/WAP2</label>
-                    <input
+                    >
+                        WPA/WAP2
+                    </Radio>
+                    <Radio
                         id="wep"
-                        type={'radio'}
-                        name="WEP"
                         value={'wep'}
                         checked={protocol === 'WEP'}
                         onChange={changeProtocol}
-                    />
-                    <label htmlFor="wep">WEP</label>
+                    >
+                        WEP
+                    </Radio>
                 </div>
             </div>
             <div>
