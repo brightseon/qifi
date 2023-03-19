@@ -4,6 +4,7 @@ import Ssid from '@components/Ssid';
 import Password from '@components/Password';
 import Protocol from '@components/Protocol';
 import Description from '@components/Description';
+import QR from '@components/QR';
 
 const New = () => {
     const {
@@ -26,12 +27,7 @@ const New = () => {
             <Protocol protocol={protocol} changeProtocol={changeProtocol} />
             <Description description={description} changeDescription={changeDescription} />
             <Button onClick={createQR}>생성하기</Button>
-            {qr && (
-                <>
-                    <br />
-                    <img src={qr} />
-                </>
-            )}
+            <QR qr={qr} />
         </div>
     );
 };
