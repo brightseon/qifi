@@ -3,6 +3,7 @@ import useToggle from '@hooks/useToggle';
 import Input from '@components/Input';
 import Radio from '@components/Radio';
 import Button from '@components/Button';
+import Ssid from '@components/Ssid';
 
 const New = () => {
     const {
@@ -21,10 +22,7 @@ const New = () => {
 
     return (
         <div>
-            <div>
-                <label>이름</label>
-                <Input value={ssid} onChange={changeSSID} />
-            </div>
+            <Ssid ssid={ssid} changeSSID={changeSSID} />
             <div>
                 <label>비밀번호</label>
                 <Input
