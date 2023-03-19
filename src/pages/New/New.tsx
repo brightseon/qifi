@@ -2,6 +2,7 @@ import useQRForm from '@hooks/useQRForm';
 import useToggle from '@hooks/useToggle';
 import Input from '@components/Input';
 import Radio from '@components/Radio';
+import Button from '@components/Button';
 
 const New = () => {
     const {
@@ -31,9 +32,7 @@ const New = () => {
                     value={password}
                     onChange={changePassword}
                 />
-                <button type="button" onClick={toggleDisplayPassword}>
-                    Display
-                </button>
+                <Button onClick={toggleDisplayPassword}>Display</Button>
             </div>
             <div>
                 <label>보안 프로토콜</label>
@@ -68,9 +67,7 @@ const New = () => {
                 <label>설명</label>
                 <Input value={description} onChange={changeDescription} />
             </div>
-            <button type="button" onClick={createQR}>
-                생성하기
-            </button>
+            <Button onClick={createQR}>생성하기</Button>
             {qr && (
                 <>
                     <br />
